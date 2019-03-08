@@ -1,0 +1,24 @@
+import os
+import csv
+
+# Read CSV file
+csvpath = os.path.join("downloads","election_data.csv")
+
+with open(csvpath, newline="") as csvfile:
+
+# Specify delimiter and variable that hold contents
+    csvreader = csv.reader(csvfile,delimiter=",")
+    header = next(csvreader)    
+
+# sum total dollars across all time periods
+    print("Election Results")
+    print("--------------------------")
+
+    total = 0
+    aggregate = 0
+    net_change = 0
+    for row in csvreader:
+        aggregate = str(row[1])
+        total = total + 1
+    print("Total Votes: " + str(total))
+    print("--------------------------")
